@@ -19,27 +19,28 @@
                         <div class="form-group">
                             <h1>Login form</h1>
                         </div>
+                        
+                        @if(count($errors) > 0)
+                        <span class="help-block">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li class="text-danger">{{ $error}}</li>
+                                @endforeach
+                            </ul>
+                        </span>
+                        @endif
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email">
-                            @if ($errors->has('username'))
-                            <span class="help-block">
-                                <strong class="text-danger">{{ $errors->first('username') }}</strong>
-                            </span>
-                            @endif
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                             @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong class="text-danger">{{ $errors->first('password') }}</strong>
-                            </span>
-                            @endif
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
+                                <input type="checkbox" name="remember" value="1" class="form-check-input">
                                 Check me out
                             </label>
                         </div>

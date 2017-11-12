@@ -15,4 +15,15 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/login', function() {
+    return view('login');
+});
+
 Route::post('/login', 'LoginController@login')->name('login');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
+Route::resource('resource', 'ResourceController');
